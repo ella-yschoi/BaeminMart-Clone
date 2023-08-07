@@ -1,0 +1,15 @@
+.pineapple-img {
+    width: 300px; 
+    margin-right: 30px;
+}
+
+.profile {
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p {
+    text-align: center;
+}
