@@ -49,3 +49,28 @@ p {
 ### 5. 일부 스타일은 inherit(상속) 됨
 
 - `font-size`, `color`, `font-family`, `text-align` 속성은 부모태그에 적용하면 안에 있던 자식 태그들에까지 모두 상속됨
+
+### 6. 요소를 공중에 띄워 왼쪽/오른쪽 정렬하는 float 속성
+
+```css
+/* box 2개를 만들어 각각 왼쪽으로 정렬 */
+.left-box {
+  width : 100px; 
+  height : 100px;
+  float : left;
+}
+
+.right-box {
+  width : 100px; 
+  height : 100px;
+  float : left;
+}
+
+.footer {
+  clear : both
+}
+```
+
+- 다만, `float`를 쓰면 요소를 붕 띄우다보니 그 다음에 오는 HTML 요소들이 제자리를 찾지 못하기에 항상 `clear` 속성이 필요함
+- 더불어, `float`로 가로 정렬 시, float 박스들을 싸매는 하나의 큰 div 박스를 만들고 width를 지정해 주는게 좋음. (그래야 모바일에서도 흘러넘치지 않고 잘 보임)
+- `float : none`도 추가해 주는게 추후 생길 버그 예방 차원에서도 좋음.
