@@ -31,3 +31,34 @@ body {
     font-size: 1rem;
     box-shadow: 1rem 1rem yellowgreen
 }
+
+.container {
+    width: 50rem;
+}
+
+.header {
+    width: 100%;
+    height: 6.25rem;
+    background: #f5dcdc;
+}
+
+.left-menu {
+    width: 20%;
+    height: 25rem;
+    background-color: #faebd7;
+    float: left;
+}
+
+.right-content {
+    width: 80%;
+    height: 25rem;
+    background-color: #ffccba;
+    float: left;
+}
+
+.footer {
+    width: 100%;
+    height: 100px; 
+    background-color: #daeeff;
+    clear: both;
+}
