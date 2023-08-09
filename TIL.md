@@ -74,3 +74,14 @@ p {
 - 다만, `float`를 쓰면 요소를 붕 띄우다보니 그 다음에 오는 HTML 요소들이 제자리를 찾지 못하기에 항상 `clear` 속성이 필요함
 - 더불어, `float`로 가로 정렬 시, float 박스들을 싸매는 하나의 큰 div 박스를 만들고 width를 지정해 주는게 좋음. (그래야 모바일에서도 흘러넘치지 않고 잘 보임)
 - `float : none`도 추가해 주는게 추후 생길 버그 예방 차원에서도 좋음.
+
+### 7. 텍스트 수평 & 수직 가운데 정렬
+
+```css
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+```
+
+### 8. 
