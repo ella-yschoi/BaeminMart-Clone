@@ -1,6 +1,6 @@
 # Today I Learned
 
-## What I learned about HTML?
+## What I learned about HTML & CSS?
 
 ### 1. 이미지 가운데 정렬하는 방법
 
@@ -12,32 +12,48 @@ margin-right: auto
 
 ### 2. 문장 안의 일부 글자만 스타일링 하는 방법
 
-- span 태그는 `display : inline` 이라는 스타일 속성을 내포하고 있기에
-- `display : inline`을 가지고 있는 요소는 폭, 높이 등을 단독으로 결정할 수 없음
-- 폭, 높이를 주고싶으면 이를 감싸고 있는 `<p>`에 주기
-
 ```html
 <p>이건<span style="color: yellow;">일부</span>문장</p>
 ```
 
-### 3. selector 용어 정리
+- span 태그는 `display : inline` 이라는 스타일 속성을 내포하고 있기에
+- `display : inline`을 가지고 있는 요소는 폭, 높이 등을 단독으로 결정할 수 없음
+- 폭, 높이를 주고싶으면 이를 감싸고 있는 `<p>`에 주기
+
+### 3. selector 사용법
 
 - 만약 스타일이 겹칠 경우, html의 style > id > class > tag selector 순으로 적용됨
 
 ```css
 /* class selector */
 .title {
-    text-align: center;
+  text-align: center;
 }
 
 /* tag selector */
 p {
-    text-align: center;
+  text-align: center;
 }
 
 /* id selector */
 #title {
-    text-align: center;
+  text-align: center;
+}
+
+/* 공백을 두어 부모 태그 안의 모든 자식들 선택 가능 */
+.nav li {
+  display: inline-block;
+}
+
+/* 꺽쇠를 사용해 바로 밑에 있는 자식만 선택 가능 */
+.nav > li {
+  display: inline-block;
+}
+
+/* 더욱 상세히 선택하고 싶다면
+하지만 4개 이상 여러개 쓰면 직관적이지 X, 차라리 중간에 class 하나 더 만들기*/
+.nav > li > span {
+  color: red;
 }
 ```
 
@@ -84,4 +100,34 @@ p {
     justify-content: center;
 ```
 
-### 8. 
+### 8. class 2개 이상 부여하려면
+
+  ```css
+  /* class명을 띄어쓰기 후 연달아 작성 */
+  <ul class="navbar content">
+  ```
+
+### 9. a 태그 링크 설정
+
+```html
+<!-- 아무 링크 없이 임시로 넣어두려면 -->
+<a href="#" class="link">링크</a>
+```
+
+```css
+.navbar a {
+    font-size: 20px;
+    text-decoration: none;
+    color: inherit; /* 현재 요소에서 상속된 색상 사용 */
+}
+
+.navbar a:hover {
+    text-decoration: none; /* 호버 시 밑줄 없애기 */
+    color: inherit; /* 호버 시 색상 변경하지 않음 */
+}
+
+/* 클릭 시 색상 변경을 없애기 위해 active 스타일을 재정의 */
+.navbar a:active {
+    color: inherit;
+}
+```

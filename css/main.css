@@ -2,6 +2,32 @@ body {
     font-family: BM Hanna Pro;
 }
 
+.navbar li {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    background: #eee;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.navbar a {
+    font-size: 20px;
+    text-decoration: none;
+    color: inherit; /* 현재 요소에서 상속된 색상 사용 */
+}
+
+.navbar a:hover {
+    text-decoration: none; /* 호버 시 밑줄 없애기 */
+    color: inherit; /* 호버 시 색상 변경하지 않음 */
+}
+
+/* 클릭 시 색상 변경을 없애기 위해 active 스타일을 재정의 */
+.navbar a:active {
+    color: inherit;
+}
+
+
 .pineapple-img {
     width: 300px; 
     margin-right: 30px;
