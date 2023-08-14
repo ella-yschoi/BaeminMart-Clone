@@ -131,3 +131,61 @@ p {
     color: inherit;
 }
 ```
+
+### 10. position
+
+- 속성 값 4가지
+
+  ```css
+  .box {
+    position : static; /* 기준: 없음 (좌표적용 불가) */
+    position : relative; /* 기준: 내 원래 위치 */
+    position : absolute; /* 기준: (position : relative를 가지고 있는) 내 부모 */
+    position : fixed; /* 기준: 브라우저 창 (viewport) */
+  }
+  ```
+
+- position : absolute 를 적용한 요소 가운데 정렬
+
+  ```css
+  .button {
+    position : absolute; 
+    left : 0;
+    right : 0; 
+    margin-left : auto;
+    margin-right : auto;
+    width : 적절히
+  }
+  ```
+
+### 11. 박스의 폭을 border까지 설정해주고 싶을 때
+
+```css
+.box {
+  box-sizing : border-box; /* 박스의 폭은 border까지 포함 */
+  box-sizing : content-box; /* 박스의 폭은 padding 안쪽 */
+}
+
+.div {
+  box-sizing : border-box; /* 보통 css파일 맨 위에 써놓고 시작하면 좋음 */
+}
+```
+
+### 12. CSS 파일 작성시 기본으로 쓰면 좋을 속성들
+
+혹은 [CSS normalize](https://github.com/necolas/normalize.css/blob/master/normalize.css)
+로 브라우저간 통일된 스타일을 주어도 좋음. 다운 받아서 `<link>` 태그로 첨부하기
+
+```css
+div {
+  box-sizing : border-box;
+}
+
+body {
+  margin : 0;
+}
+
+html {
+  line-height : 1;
+}
+```
