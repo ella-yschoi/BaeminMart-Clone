@@ -1,4 +1,4 @@
-div {
+div, input, textarea {
     box-sizing: border-box;
 }
 
@@ -168,4 +168,19 @@ body {
     background-color: #2bc1bc;
     position: relative;
     top: -40px;
+}
+
+.input[type=text] {
+    padding: 10px;
+    font-size: 20px;
+    border: 2px solid red;
+    border-radius: 10px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid black;
 }

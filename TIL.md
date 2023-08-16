@@ -189,3 +189,49 @@ html {
   line-height : 1;
 }
 ```
+
+### HTML 속성으로 CSS 셀렉터 사용하기
+
+```css
+/* input의 type속성이 email인 요소만 찾아서 스타일을 주기 */
+input[type=email] {
+  color : grey;
+}
+```
+
+### label 태그와 for 속성
+
+```html
+<!-- input 태그의 id와 label 태그의 for 속성의 이름을 맞춰주면 -->
+<input type="checkbox" id="subscribe">
+<!-- input 대신 label을 눌러도 input 선택 가능 -->
+<label for="subscribe">누르기</label>
+```
+
+### 동시에 여러 요소에 한 스타일을 주기
+
+```css
+/* 셀렉터에 콤마(,)를 사용하기 */
+div, input, textarea {
+    box-sizing: border-box;
+}
+```
+
+### vertical-align 사용하기
+
+- 테이블 셀 내에서 상하 정렬 하기 (top, bottom, middle 사용 가능)
+
+  ```css
+  td, th {
+    vertical-align : middle;
+  }
+  ```
+
+- inline 요소간 상하 정렬하기 (top, middle, bottom, super, sub, px 단위 사용 가능)
+  
+  ```html
+  <p>
+  <span style="font-size : 50px">Hello</span>
+  <span style="font-size : 20px; vertical-align: top">World</span>
+  </p>
+  ```
