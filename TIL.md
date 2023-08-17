@@ -235,3 +235,145 @@ div, input, textarea {
   <span style="font-size : 20px; vertical-align: top">World</span>
   </p>
   ```
+
+### nth-child 셀렉터
+
+- 테이블에서 원하는 순서의 셀에 스타일줄 때 유용하게 사용
+- 숫자 외 even, odd, 3n+0로도 가능
+
+  ```css
+  /* .cart-table 안의 td 중, 2번째 td에만 color 주기 */
+  .cart-table td:nth-child(2) {
+    color: red;
+  } 
+  ```
+
+### border-top/bottom
+
+- 테두리 색상 위, 아래에만 넣고 싶을 때 사용
+
+  ```css
+  td, th {
+    border-bottom : 1px solid black;
+  }
+  ```
+
+### 셀 블록마다 width 손쉽게 설정하기
+
+- 하나의 td에 width를 주어도 전체 열의 width가 변해서 매우 편리함
+
+  ```html
+  <table>
+  <tr>
+    <td class="name">상품명</td>
+    <td class="price">가격</td>
+    <td>수량</td>
+    </tr>
+  </table>
+  ```
+
+  ```css
+  .name {
+    width : 50%
+  }
+  .price {
+    width : 20%
+  }
+  ```
+
+### td 여러개를 합치고 싶다면: colspan
+
+- colspan에 원하는 숫자를 넣으면 그 숫자만큼 옆의 셀을 합쳐줌
+
+  ```html
+  <td colspan="4"></td>
+  ```
+
+### 상태에 따라서 스타일을 줄 수 있는 Pseudo-class 셀렉터
+
+- button: 넣을 때는 넣는 순서가 중요함 (hover > focus > active)
+
+  ```css
+  .btn:hover {
+  background : chocolate; /* 마우스를 올려놓을 때 */
+  }
+  .btn:focus {
+    background : red; /* 클릭 후 계속 포커스 상태일 때 */
+  }
+  .btn:active {
+    background : brown; /* 클릭 중일 때 */
+  }
+  ```
+
+- input
+
+  ```css
+  .input:focus {
+    border : 2px solid red;
+  }
+  ```
+
+- a 태그
+
+  ```css
+  a:link { 
+  color : red; /* 방문 전 링크 */ 
+  }
+  a:visited { 
+    color : black; /* 방문 후 링크 */ 
+  }
+  ```
+
+### 코드양이 줄어드는 [OOCSS] : 뼈대와 살을 분리하자
+
+- 버튼의 기본 스타일인 padding, font-size 이런걸 정의하는 class를 하나 만들고
+- 버튼에 스킨 색깔놀이 하는 용도의 class를 여러 개 만들어두는 것
+
+  ```html
+  <button class="main-btn bg-red">빨간버튼</button>
+  <button class="main-btn bg-blue">파란버튼</button>
+  ```
+
+  ```css
+  .main-btn {
+  font-size : 20px;
+  padding : 15px;
+  border : none;
+  cursor : pointer;
+  }
+
+  /* utility class 만들어 두기 */
+  .bg-red {
+    background : red;
+  }
+  .bg-blue {
+    background : blue;
+  }
+
+  .font-small {
+    font-size : 12px;
+  }
+  .font-medium {
+    font-size : 16px;
+  }
+  .font-lg {
+    font-size : 20px;
+  }
+  ```
+
+### font-family
+
+- 사용자의 컴퓨터에 설치되지 않은 폰트를 사이트에서 이용하려면
+
+  ```css
+  @font-face {
+  font-family : '나눔고딕 폰트';
+  src : url(nanumsquare.ttf)
+  }
+  ```
+
+- Windows 환경에서 글자가 깨진다면 꿀팁: Anti-aliasing
+
+  ```css
+  transform : rotate(0.04deg); 
+  ```
