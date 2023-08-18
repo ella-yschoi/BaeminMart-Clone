@@ -1,52 +1,100 @@
+/* ---------------- 공통 스타일 ---------------- */
+@font-face {
+    font-family: 'SpoqaHanSansNeo-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 div, input, textarea {
     box-sizing: border-box;
 }
 
 body {
-    margin: 0px;
-    font-family: BM Hanna Pro;
+    margin: 100px 100px;
+    font-family: SpoqaHanSansNeo-light;
+}
+
+/* ---------------- 메인 상단 부가서비스 섹션 ---------------- */
+.main-service-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-service-top-left, .main-service-top-right {
+    display: flex;
+}
+
+.top-services {
+    margin: 0px 10px 30px 0px;
+    font-size: 13px;
+    color: #b2b3b5;
+}
+
+.customer-center, .login {
+    font-size: 13px;
+    color: #b2b3b5;
+    margin: 0px 10px 30px 0px;
+}
+
+/* ---------------- 메인 상단 로고 섹션 ---------------- */
+.main-logo-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-logo-top-left, .main-logo-top-right {
+    display: flex;
+}
+
+.main-logo {
+    width: 130px;
+}
+
+.search-box {
+    box-sizing: content-box;
+    width: 350px;
+    border-radius: 5px;
+    height: 2.2rem;
+    padding: 10px 20px;
+    border: solid #e5e5e5 1px;
+    margin-left: 40px;
+}
+
+.my-cart, .my-page {
+        margin: 0px 10px 30px 0px;
+    font-size: 12px;
+}
+
+/* ---------------- 메인 카테고리 섹션 ---------------- */
+.navbar {
+    position: relative;
+    left: -70px;
+    width: 100%;
+    border-top: solid #e5e5e5 1px;
 }
 
 .navbar li {
     display: inline-block;
     width: 100px;
     text-align: center;
-    background: #eee;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 25px 0px 0px 10px;
 }
 
 .navbar a {
-    font-size: 20px;
+    font-size: 16px;
+    font-family: SpoqaHanSansNeo-regular;
     text-decoration: none;
-    color: inherit; /* 현재 요소에서 상속된 색상 사용 */
-}
-
-.navbar a:hover {
-    text-decoration: none; /* 호버 시 밑줄 없애기 */
-    color: inherit; /* 호버 시 색상 변경하지 않음 */
-}
-
-/* 클릭 시 색상 변경을 없애기 위해 active 스타일을 재정의 */
-.navbar a:active {
     color: inherit;
 }
 
-
-.pineapple-img {
-    width: 300px; 
-    margin-right: 30px;
+.navbar a:hover {
+    text-decoration: none;
+    color: inherit;
 }
 
-.profile {
-    width: 100px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.content {
-    text-align: center;
+.navbar a:active {
+    color: inherit;
 }
 
 .box {
