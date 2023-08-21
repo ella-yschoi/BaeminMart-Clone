@@ -2,7 +2,7 @@
 
 ## What I learned about HTML & CSS?
 
-### 1. 이미지 가운데 정렬하는 방법
+### 이미지 가운데 정렬하는 방법
 
 ```html
 display: block;
@@ -10,7 +10,7 @@ margin-left: auto;
 margin-right: auto
 ```
 
-### 2. 문장 안의 일부 글자만 스타일링 하는 방법
+### 문장 안의 일부 글자만 스타일링 하는 방법
 
 ```html
 <p>이건<span style="color: yellow;">일부</span>문장</p>
@@ -20,7 +20,7 @@ margin-right: auto
 - `display : inline`을 가지고 있는 요소는 폭, 높이 등을 단독으로 결정할 수 없음
 - 폭, 높이를 주고싶으면 이를 감싸고 있는 `<p>`에 주기
 
-### 3. selector 사용법
+### selector 사용법
 
 - 만약 스타일이 겹칠 경우, html의 style > id > class > tag selector 순으로 적용됨
 
@@ -57,16 +57,16 @@ p {
 }
 ```
 
-### 4. display: block이 내장되어 있는 div
+### display: block이 내장되어 있는 div
 
 - 모든 `<div>`, `<p>`, `<h1>`, `<li>` 등은 `display : block` 속성을 주지 않아도 기본적으로 내장되어 있음. 그래서 `<div>`, `<p>`를 그냥 사용하면 한 행을 전부 차지하게 됨.
 - 이렇게 하고 싶지 않다면 display 속성을 `inline`, `inline-block`, `flex` 등으로 주면 됨.
 
-### 5. 일부 스타일은 inherit(상속) 됨
+### 일부 스타일은 inherit(상속) 됨
 
 - `font-size`, `color`, `font-family`, `text-align` 속성은 부모태그에 적용하면 안에 있던 자식 태그들에까지 모두 상속됨
 
-### 6. 요소를 공중에 띄워 왼쪽/오른쪽 정렬하는 float 속성
+### 요소를 공중에 띄워 왼쪽/오른쪽 정렬하는 float 속성
 
 ```css
 /* box 2개를 만들어 각각 왼쪽으로 정렬 */
@@ -91,23 +91,25 @@ p {
 - 더불어, `float`로 가로 정렬 시, float 박스들을 싸매는 하나의 큰 div 박스를 만들고 width를 지정해 주는게 좋음. (그래야 모바일에서도 흘러넘치지 않고 잘 보임)
 - `float : none`도 추가해 주는게 추후 생길 버그 예방 차원에서도 좋음.
 
-### 7. 텍스트 수평 & 수직 가운데 정렬
+### 텍스트 수평 & 수직 가운데 정렬
 
 ```css
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.class {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 ```
 
-### 8. class 2개 이상 부여하려면
+### class 2개 이상 부여하려면
 
-  ```css
-  /* class명을 띄어쓰기 후 연달아 작성 */
-  <ul class="navbar content">
-  ```
+```css
+/* class명을 띄어쓰기 후 연달아 작성 */
+<ul class="navbar content">
+```
 
-### 9. a 태그 링크 설정
+### a 태그 링크 설정
 
 ```html
 <!-- 아무 링크 없이 임시로 넣어두려면 -->
@@ -116,23 +118,23 @@ p {
 
 ```css
 .navbar a {
-    font-size: 20px;
-    text-decoration: none;
-    color: inherit; /* 현재 요소에서 상속된 색상 사용 */
+  font-size: 20px;
+  text-decoration: none;
+  color: inherit; /* 현재 요소에서 상속된 색상 사용 */
 }
 
 .navbar a:hover {
-    text-decoration: none; /* 호버 시 밑줄 없애기 */
-    color: inherit; /* 호버 시 색상 변경하지 않음 */
+  text-decoration: none; /* 호버 시 밑줄 없애기 */
+  color: inherit; /* 호버 시 색상 변경하지 않음 */
 }
 
 /* 클릭 시 색상 변경을 없애기 위해 active 스타일을 재정의 */
 .navbar a:active {
-    color: inherit;
+  color: inherit;
 }
 ```
 
-### 10. position
+### position
 
 - 속성 값 4가지
 
@@ -158,7 +160,7 @@ p {
   }
   ```
 
-### 11. 박스의 폭을 border까지 설정해주고 싶을 때
+### 박스의 폭을 border까지 설정해주고 싶을 때
 
 ```css
 .box {
@@ -171,7 +173,7 @@ p {
 }
 ```
 
-### 12. CSS 파일 작성시 기본으로 쓰면 좋을 속성들
+### CSS 파일 작성시 기본으로 쓰면 좋을 속성들
 
 혹은 [CSS normalize](https://github.com/necolas/normalize.css/blob/master/normalize.css)
 로 브라우저간 통일된 스타일을 주어도 좋음. 다운 받아서 `<link>` 태그로 첨부하기
@@ -213,7 +215,7 @@ input[type=email] {
 ```css
 /* 셀렉터에 콤마(,)를 사용하기 */
 div, input, textarea {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 ```
 
@@ -295,7 +297,7 @@ div, input, textarea {
 
   ```css
   .btn:hover {
-  background : chocolate; /* 마우스를 올려놓을 때 */
+    background : chocolate; /* 마우스를 올려놓을 때 */
   }
   .btn:focus {
     background : red; /* 클릭 후 계속 포커스 상태일 때 */
@@ -316,11 +318,14 @@ div, input, textarea {
 - a 태그
 
   ```css
+  /* 방문 전 링크 */ 
   a:link { 
-  color : red; /* 방문 전 링크 */ 
+  color : red;
   }
+
+  /* 방문 후 링크 */ 
   a:visited { 
-    color : black; /* 방문 후 링크 */ 
+    color : black;
   }
   ```
 
@@ -336,10 +341,10 @@ div, input, textarea {
 
   ```css
   .main-btn {
-  font-size : 20px;
-  padding : 15px;
-  border : none;
-  cursor : pointer;
+    font-size : 20px;
+    padding : 15px;
+    border : none;
+    cursor : pointer;
   }
 
   /* utility class 만들어 두기 */
@@ -367,8 +372,8 @@ div, input, textarea {
 
   ```css
   @font-face {
-  font-family : '나눔고딕 폰트';
-  src : url(nanumsquare.ttf)
+    font-family : '나눔고딕 폰트';
+    src : url(nanumsquare.ttf)
   }
   ```
 
@@ -377,3 +382,156 @@ div, input, textarea {
   ```css
   transform : rotate(0.04deg); 
   ```
+
+### 유용한 Emmet 단축키
+
+> Reference: [하늘네트](https://www.hanl.tech/blog/emmet-%EB%8B%A8%EC%B6%95%ED%82%A4-%EB%B0%8F-%ED%8A%B8%EB%A6%AD-9%EA%B0%80%EC%A7%80/)
+
+- HTML5 boilerplate (표준문서): 2가지 방법
+  - “!”치고 “tab”; 또는 “HTML”입력 후 “HTML:5” 선택
+- 하위 요소 생성: “>” 사용
+  - header>ul>li
+- 동급 요소 생성: “+” 사용
+  - section>article>h2+p
+- 반복 태그 생성: “*” 사용
+  - ul>li*5
+- CSS class 와 id 설정: “.” 와 “#”사용
+  - ul#menu>li.item*3
+- 텍스트가 있는 태그: {} 중괄호 안에 {텍스트}를 입력
+  - a.button{Click Me}
+
+### Favicon(파비콘) 넣기
+
+- 32 x 32 사이즈, ico로 넣기
+  
+  ```html
+  <head>
+  <link rel="icon" href="아이콘경로.ico" type="image/x-icon">
+  </head>
+  ```
+
+### 여러가지 meta 태그
+
+```html
+<head>
+  <!-- 사이트의 인코딩 형식 지정 -->
+  <meta charset="UTF-8">
+
+  <!-- 사이트의 검색 결과 화면에 뜨는 문구 수정 -->
+  <meta name="description" content="html 잘하는 코딩애플입니다.">
+  <meta name="keywords" content="HTML,CSS,JavaScript,자바스크립트,코딩">
+
+  <!-- name="viewport": 사이트 초기 zoom 레벨이나 폭을 지정 -->
+  <!-- width=device-width: 모바일 기기의 실제 가로폭을 보고 렌더링하라 -->
+  <!-- initial-scale=1 이 부분은 접속시의 화면 줌레벨 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+```
+
+### Open Graph
+
+- 페이스북, 카카오톡 등에 링크 공유 시 뜨는 문구 커스터마이징
+
+  ```html
+  <head>
+    <meta property="og:image" content="/이미지경로.jpg">
+    <meta property="og:description" content="사이트설명">
+    <meta property="og:title" content="사이트제목">
+  </head>
+  ```
+
+### 모던 웹에서 사용하는 단위정리
+
+```css
+.box {
+  width : 16px; /* 기본 px 단위 */
+  width : 1.5rem; /* html태그 혹은 기본 폰트사이즈의 1.5배 */
+  width : 2em; /* 내 폰트사이즈 혹은 상위요소 폰트사이즈의 2배 */
+  width : 50vw; /* 브라우저(viewport) 화면 폭의 50% */
+  width : 50vh; /* 브라우저(viewport) 화면 높이의 50% */
+}
+```
+
+### media query 사용 방법
+
+- CSS 파일 최하단에 사용하며, class를 밑에 하나 더 추가해주는 셈이다. 추가 시 class 안의 font-size 스타일 중복이 발생하는데, 중복 발생 시 더 밑에 있는 스타일을 적용해 준다.
+
+  ```css
+  /* 현재 브라우저의 폭이 1200px 이하일 경우, 안에 있는 class를 적용 */
+  @media screen and (max-width: 1200px) {
+    .box {
+      font-size: 400px;
+    }
+  }
+  
+  /* 현재 브라우저의 폭이 768px 이하일 경우, 안에 있는 class를 적용 */
+  @media screen and (max-width: 768px) {
+    .box {
+      font-size: 30px;
+    }
+  }
+  ```
+
+### 권장 Breakpoint
+
+- breakpoint: media query 문법 max-width 안에 넣는 브라우저 폭
+- 권장 사이즈
+  - 1200px, 992px, 768px, 576px
+  - 이 중 태블릿: 1200px, 모바일: 768px 두 개를 가장 많이 사용
+
+### Animation 구현하기 4단계
+
+- overlay-wrap에 hover 시, 안에 있는 overlay-black 박스를 위로 올리는 코드 예시
+
+  ```html
+    <div class="overlay-wrap">
+    <div class="overlay-black">
+      <span>hello world</span>
+    </div>
+    </div>
+    <img src="img/product1.jpg">
+  ```
+
+1. 시작 스타일 정하기
+
+    ```css
+    .overlay-wrap {
+    position : absolute;
+    width : 100%;
+    height : 100%;
+    overflow : hidden
+    }
+    ```
+
+2. 최종 스타일 정하기
+
+    ```css
+   .overlay-black {
+     width : 100%;
+     height : 100%;
+     background : rgba(0,0,0,0.3);
+     padding : 20px;
+     margin-top : 100%;
+   }
+    ```
+
+3. 언제 최종스타일로 변할지 트리거 주기 (대부분 hover)
+
+    ```css
+    .overlay-wrap:hover .overlay-black {
+      margin-top : 50%;
+    }
+    ```
+
+4. transition 으로 동작하게 만들기
+
+    ```css
+    .overlay-black {
+      width : 100%;
+      height : 100%;
+      background : rgba(0,0,0,0.3);
+      padding : 20px;
+      margin-top : 100%;
+      transition: all 1s;
+    }
+    ```
