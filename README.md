@@ -1,4 +1,4 @@
-# 🥊 HTML-Crush
+# 🥊 HTML-CSS-crush
 
 > Lay the ground work as a Frontend Developer
 
@@ -6,5 +6,6 @@
 
 ## Contents
 
-- [HTML Practice](index.html)
+- [HTML Practice](mainpage.html)
+- [CSS Practice](/css/main.css)
 - [Today I Learned](TIL.md)
