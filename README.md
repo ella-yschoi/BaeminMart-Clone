@@ -6,6 +6,6 @@
 
 ## Contents
 
-- [HTML Practice](mainpage.html)
-- [CSS Practice](/css/main.css)
+- [HTML Practice - 배민상회 clone](/HTML/mainpage.html)
+- [CSS Practice - 배민상회 clone](/CSS/main.css)
 - [Today I Learned](TIL.md)
