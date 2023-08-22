@@ -535,3 +535,15 @@ div, input, textarea {
       transition: all 1s;
     }
     ```
+
+### CSS 덮어쓰기 잘 하는 방법
+
+1. 같은 클래스명이나 스타일을 하단에 작성하기
+   - 같은 class 명이라도 하단에 정의한 클래스 명과 스타일을 우선적으로 적용된다.
+   - CSS파일이 여러개 첨부되어있을 때도 유효하다. (e.g. 상단에 적용한 main.css < 하단에 적용한 main2.css)
+2. id, style 등 우선순위를 높여 작성하기
+   - tag < class << id <<< style="" <<<< !important 순으로 우선순위가 높다.
+   - 하지만 추후 추가 수정 시를 대비해 근본적인 해결 방안은 아님
+3. Specificity (구체성) 높여서 작성하기
+   - `div.container .box` 대신, `div.container div.box` 이런 식으로 셀렉터를 여러 개 구체적으로 나열하면 후자가 (더 상단에 있더라도) 덮어써서 적용됨
+   - 따라서 추후 덮어쓰는 상황을 염두해서 class 이름은 하나만 써서 작성하는 것이 좋음
