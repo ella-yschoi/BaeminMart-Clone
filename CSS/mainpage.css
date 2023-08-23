@@ -132,3 +132,29 @@ body {
 .navbar a:active {
     color: inherit;
 }
+
+/* ---------------- 메인 기획전 섹션 ---------------- */
+.card {
+    border: none !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    margin-top: 15px !important;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 5rem;
+    font-size: 14px;
+}
+
+.card-img {
+    margin-bottom: 10px;
+    border-radius: 16px;
+    width: 3.75rem;
+}
