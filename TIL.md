@@ -547,3 +547,49 @@ div, input, textarea {
 3. Specificity (구체성) 높여서 작성하기
    - `div.container .box` 대신, `div.container div.box` 이런 식으로 셀렉터를 여러 개 구체적으로 나열하면 후자가 (더 상단에 있더라도) 덮어써서 적용됨
    - 따라서 추후 덮어쓰는 상황을 염두해서 class 이름은 하나만 써서 작성하는 것이 좋음
+
+### pseudo-class와 pseudo-element
+
+- pseudo-class: 특정 요소가 **다른 상태일 때** 스타일을 줄 수 있게 해줌 `:`
+- pseudo-element: **내부의 일부분만** 스타일을 줄 수 있게 해줌 `::`
+
+  ```css
+  /* 첫 번째 글자만 스타일링 */
+  .text::first-letter {
+    color : red;
+  }
+
+  /* 첫 번째 줄만 스타일링 */
+  .text::first-line {
+    color : red;
+  }
+
+  /* 마지막 요소만 스타일링 */
+  .text::after {
+    content : '내용';
+    color : red;
+  }
+
+  /* 첫 번째 요소만 스타일링 */
+  .text::before {
+    content: '🔗';
+    color : red;
+  }
+  ```
+
+### Shadow DOM
+
+- HTML 개발시 코드가 너무 복잡해지지 않기 위해 **숨겨놓은 HTML 요소들**
+- 크롬 개발자 도구 설정에서 아래와 같이 체크해서 숨겨진 요소들까지 볼 수 있음
+
+  ![Shadow DOM](/Image/shadow_dom_1.png)
+- 혹은 개발자도구 우측 하단에서도 selector 확인 후 가져오면 됨
+
+  ![Shadow DOM](/Image/shadow_dom_2.png)
+- Shadow DOM 사용 시, input과 같은 기본 모듈까지 커스터마이징 가능
+
+  ```css
+  input::-webkit-input-placeholder {
+  color : red; 
+  }
+  ```
