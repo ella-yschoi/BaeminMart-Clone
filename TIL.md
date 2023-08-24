@@ -2,6 +2,33 @@
 
 ## What I learned about HTML & CSS?
 
+### 태그별 용도 정리
+
+#### `<div>`
+
+- 블록 레벨 요소로 **컨테이너 역할**
+- 주로 **구획**을 만들거나 스타일을 적용하기 위해 사용
+- 여러 요소들을 묶어서 **그룹화**하거나 스타일을 지정할 때 주로 사용
+- **줄 바꿈**을 일으키므로 새로운 줄에서 시작
+
+#### `<span>`
+
+- **인라인 요소**로, **특정 부분에 스타일**을 적용하기 위해 사용
+- 텍스트나 인라인 요소들을 감싸서 스타일을 지정할 때 사용
+- **줄 바꿈을 일으키지 않고** 텍스트 내에서 **같은 줄에 표시**
+
+#### `<p>`
+
+- **블록 레벨 요소**로, **단락**을 나타내는 데 사용
+- **문단의 시작과 끝을 지정**하는 역할
+- 위 아래로 간격을 띄우며, 기본적으로 브라우저에 의해 자동적으로 여백이 주어짐
+
+#### 정리하자면
+
+- `<div>` : 섹션을 나누는 역할 → 여러 개의 요소를 그룹화해 레이아웃 구성
+- `<span>` : 더 작은 범위에서 사용 → 텍스트 일부를 스타일링
+- `<p>` : 텍스트의 구조적인 의미나 줄 바꿈 필요 시 → 제품 정보나 설명 등
+
 ### 이미지 가운데 정렬하는 방법
 
 ```html
@@ -596,18 +623,18 @@ div, input, textarea {
 
 ### 비디오 넣기
 
+```html
+<video autoplay muted loop poster="썸네일경로" preload="metadata">
+  <source src="파일경로">
+</video>
+```
+
 - muted: 음소거상태
 - autoplay: 자동재생 (muted와 함께 넣어야 동작)
 - poster: 썸네일이미지
 - loop: 무한 재생
 - preload: 영상 먼저 다운로드 여부 (auto, metadata, none 사용 가능)
 - source 파일 형식이 여러 개 있을 경우, 브라우저에 최적화된 비디오 파일을 알아서 넣어 주므로 여러가지 확장자의 비디오 파일이 있으면 `<source>` 여러 개 넣는 것도 좋은 방법임
-
-```html
-<video autoplay muted loop poster="썸네일경로" preload="metadata">
-  <source src="파일경로">
-</video>
-```
 
 ### 비디오를 배경으로 넣기
 
@@ -637,3 +664,92 @@ div, input, textarea {
   z-index: -1;
 }
 ```
+
+### 텍스트 가운데 정렬하기 (가로, 세로)
+
+> Reference: [hi.anna](https://hianna.tistory.com/674)
+
+#### 가로로 가운데 정렬하기
+
+- text-align 사용
+
+  ```css
+  .my-div {
+    border: 1px solid blue;
+    height: 200px;
+    text-align: center;
+  }
+  ```
+
+- justify-content 사용
+
+  ```css
+  .my-div {
+    border: 1px solid blue;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+  }
+  ```
+
+#### 세로로 가운데 정렬하기
+
+- padding 사용
+
+  ```css
+  .my-div {
+    border: 1px solid blue;
+    text-align: center;
+    padding: 100px 0;
+  }
+  ```
+
+- line-height 사용 (div의 height 값과 같게)
+
+  ```css
+  .my-div {
+    border: 1px solid blue;
+    height: 200px;
+    text-align: center;
+    line-height: 200px;
+  }
+  ```
+
+- align-items 사용
+
+  ```css
+  .my-div {
+    border: 1px solid blue;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  ```
+
+### @keyframes로 transition 주기
+
+`transition`의 속도에는 최소 시간 간격이 존재하며, 이는 브라우저의 렌더링과 애니메이션 처리 속도에 따라 달라질 수 있다. 대부분의 브라우저에서 0.1초보다 더 짧은 시간은 잘 적용되지 않을 수 있다. 브라우저가 애니메이션을 처리하는 속도에 따라 다양한 영향을 받기 때문.
+
+0.1초 이하의 값을 사용하려면, `transition`보다 더 짧은 시간 간격을 가지는 `requestAnimationFrame`을 사용하여 애니메이션을 구현하는 것이 더 나은 접근 방식일 수 있다. 이렇게 하면 브라우저의 렌더링 주기에 더 가깝게 애니메이션을 동작시킬 수 있다.
+
+```css
+.carousel-item {
+    transition: transform 0.2s;
+}
+
+.carousel-item:hover {
+    animation: scaleUp 0.05s forwards;
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+```
+
+위 코드에서는 `animation` 속성을 사용하여 `scaleUp`라는 애니메이션을 정의하고, 이 애니메이션을 `hover` 상태일 때 동작하도록 설정했다. `@keyframes`를 사용하여 애니메이션의 시작과 끝을 정의하며, 이렇게 하면 좀 더 짧은 시간 간격으로 빠르게 애니메이션을 적용할 수 있다.
