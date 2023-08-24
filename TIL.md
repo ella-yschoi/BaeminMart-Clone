@@ -593,3 +593,47 @@ div, input, textarea {
   color : red; 
   }
   ```
+
+### 비디오 넣기
+
+- muted: 음소거상태
+- autoplay: 자동재생 (muted와 함께 넣어야 동작)
+- poster: 썸네일이미지
+- loop: 무한 재생
+- preload: 영상 먼저 다운로드 여부 (auto, metadata, none 사용 가능)
+- source 파일 형식이 여러 개 있을 경우, 브라우저에 최적화된 비디오 파일을 알아서 넣어 주므로 여러가지 확장자의 비디오 파일이 있으면 `<source>` 여러 개 넣는 것도 좋은 방법임
+
+```html
+<video autoplay muted loop poster="썸네일경로" preload="metadata">
+  <source src="파일경로">
+</video>
+```
+
+### 비디오를 배경으로 넣기
+
+```html
+<div class="video-box">
+  <video class="video-container" autoplay muted loop>
+    <source src="img/brand-film.mp4" type="video/mp4">
+  </video>
+  <h3 class="video-title">Introduce our Brand</h3>
+</div>
+```
+
+```css
+.video-box {
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.video-container {
+  position: absolute;
+  width : 100%;
+  top: 50%;
+  left: 50%;
+  transform : translate(-50%,-50%);
+  z-index: -1;
+}
+```
