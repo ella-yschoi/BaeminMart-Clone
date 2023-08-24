@@ -104,7 +104,8 @@ body {
     font-size: 15px;
 }
 
-.navbar-border {
+.basic-border {
+    width: 100%;
     border-top: solid #e5e5e5 1px;
 }
 
@@ -157,16 +158,16 @@ body {
     }
 }
 
-/* ---------------- 메인 기획전 섹션 ---------------- */
+/* ---------------- 메인 뱃지 섹션 ---------------- */
 
-.custom-card {
+.badge-list {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
-.custom-card .card-body {
+.badge-list .badge-body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -175,8 +176,79 @@ body {
     font-size: 14px;
 }
 
-.custom-card .card-img {
-    margin-bottom: 10px;
+.badge-list .badge-img {
+    margin-bottom: 20px;
     border-radius: 16px;
     width: 3.75rem;
+}
+
+/* ---------------- 할인 상품 리스트 섹션 ---------------- */
+
+.discount-items-list {
+    display: flex;
+    cursor: pointer;
+}
+
+.discount-items-main-title {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: 500;
+    color: #181A1C;
+}
+
+.discount-items-sub-title {
+    margin: 0px 8px 0px 0px;
+    font-size: 14px;
+    color: #7E8082;
+}
+
+.discount-items-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.discount-item-img {
+    width: 144px;
+    height: auto;
+    margin-bottom: 10px;
+    background-color: #b3d4fc;
+}
+
+.item-img-cart {
+
+}
+
+.discount-item-name {
+    margin: 0px 0px 4px;
+    font-size: 14px;
+}
+
+.discount-item-detail {
+    font-size: 12px;
+    color: #7E8082;
+    font-weight: 200;
+}
+
+.discount-item-sale {
+    display: flex;
+}
+
+.discount-item-sale-price {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.discount-item-sale-percent {
+    margin: 0px 4px 0px 0px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ff403e;
+}
+
+.discount-item-origin-price {
+    font-size: 14px;
+    color: #B1B3B5;
+    text-decoration: line-through;
 }
