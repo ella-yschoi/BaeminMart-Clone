@@ -1,4 +1,5 @@
 /* ---------------- 공통 스타일 ---------------- */
+
 @font-face {
     font-family: "SpoqaHanSansNeo-Regular";
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff') format('woff');
@@ -16,6 +17,7 @@ body {
 }
 
 /* ---------------- 메인 상단 부가서비스 섹션 ---------------- */
+
 .main-service-top {
     display: flex;
     text-align: center;
@@ -49,6 +51,7 @@ body {
 }
 
 /* ---------------- 메인 상단 로고 섹션 ---------------- */
+
 .main-logo-top {
     display: flex;
     justify-content: space-between;
@@ -89,6 +92,7 @@ body {
 }
 
 /* ---------------- 메인 카테고리 섹션 ---------------- */
+
 .navbar {
     margin: 0;
     padding: 0;
@@ -133,27 +137,45 @@ body {
     color: inherit;
 }
 
-/* ---------------- 메인 기획전 섹션 ---------------- */
-.card {
-    border: none !important;
-    display: flex !important;
-    justify-content: space-between !important;
-    flex-direction: row !important;
-    width: 100% !important;
-    margin-top: 15px !important;
+/* ---------------- 메인 배너 캐러셀 섹션 ---------------- */
+
+.carousel-item {
+    transition: transform 0.2s;
+    cursor: pointer;
 }
 
-.card-body {
+.carousel-item:hover {
+    animation: scaleUp 0.2s forwards;
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+/* ---------------- 메인 기획전 섹션 ---------------- */
+
+.custom-card {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.custom-card .card-body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
     width: 5rem;
     font-size: 14px;
 }
 
-.card-img {
+.custom-card .card-img {
     margin-bottom: 10px;
     border-radius: 16px;
     width: 3.75rem;
