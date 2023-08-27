@@ -729,9 +729,9 @@ div, input, textarea {
 
 ### @keyframes로 transition 주기
 
-`transition`의 속도에는 최소 시간 간격이 존재하며, 이는 브라우저의 렌더링과 애니메이션 처리 속도에 따라 달라질 수 있다. 대부분의 브라우저에서 0.1초보다 더 짧은 시간은 잘 적용되지 않을 수 있다. 브라우저가 애니메이션을 처리하는 속도에 따라 다양한 영향을 받기 때문.
+`transition`의 속도에는 최소 시간 간격이 존재하며, 이는 브라우저의 렌더링과 animation 처리 속도에 따라 달라질 수 있다. 대부분의 브라우저에서 0.1초보다 더 짧은 시간은 잘 적용되지 않을 수 있다. 브라우저가 animation을 처리하는 속도에 따라 다양한 영향을 받기 때문.
 
-0.1초 이하의 값을 사용하려면, `transition`보다 더 짧은 시간 간격을 가지는 `requestAnimationFrame`을 사용하여 애니메이션을 구현하는 것이 더 나은 접근 방식일 수 있다. 이렇게 하면 브라우저의 렌더링 주기에 더 가깝게 애니메이션을 동작시킬 수 있다.
+0.1초 이하의 값을 사용하려면, `transition`보다 더 짧은 시간 간격을 가지는 `requestAnimationFrame`을 사용하여 animation을 구현하는 것이 더 나은 접근 방식일 수 있다. 이렇게 하면 브라우저의 렌더링 주기에 더 가깝게 animation을 동작시킬 수 있다.
 
 ```css
 .carousel-item {
@@ -752,4 +752,195 @@ div, input, textarea {
 }
 ```
 
-위 코드에서는 `animation` 속성을 사용하여 `scaleUp`라는 애니메이션을 정의하고, 이 애니메이션을 `hover` 상태일 때 동작하도록 설정했다. `@keyframes`를 사용하여 애니메이션의 시작과 끝을 정의하며, 이렇게 하면 좀 더 짧은 시간 간격으로 빠르게 애니메이션을 적용할 수 있다.
+위 코드에서는 `animation` 속성을 사용하여 `scaleUp`라는 animation을 정의하고, 이 animation을 `hover` 상태일 때 동작하도록 설정했다. `@keyframes`를 사용하여 animation의 시작과 끝을 정의하며, 이렇게 하면 좀 더 짧은 시간 간격으로 빠르게 animation을 적용할 수 있다.
+
+### transform 관련 CSS 속성들
+
+```css
+.box {
+  transform : rotate(10deg); /* 회전 */
+  transform : translate(10px, 20px); /* 좌표 이동 */
+  transform : scale(2); /* 확대 or 축소 */
+  transform : skew(30deg); /* 비틀기 */
+  
+  /* transform 두개 이상 사용 */
+  transform : rotate(10deg) translateX(30px);
+}
+```
+
+### keyframes 사용하기
+
+```css
+@keyframes move-move {
+  0% {
+    transform : translateX(0px); /* animation이 0%만큼 동작시 */
+  }
+  50% {
+    transform : translateX(-20px); /* animation이 50%만큼 동작시 */
+  }
+  100% {
+    transform : translateX(20px); /* animation이 100%만큼 동작시 */
+  }
+}
+```
+
+```css
+/* animation 적용 시 꼭 필요한 항목 */
+.box:hover {
+  animation-name : move-move; /* 위에서 작성한 이름 붙여줌 */
+  animation-duration : 1s;
+}
+```
+
+```css
+/* animation 세부 조정하기 */
+.box:hover {
+  animation-name : move-move;
+  animation-duration : 1s;
+  animation-timing-function : linear; /* 베지어 주기 */
+  animation-delay : 1s; /* 시작 전 딜레이 */
+  animation-iteration-count : 3; /* 반복 횟수 */
+  animation-play-state : paused;  /* animation을 멈추고 싶은 경우 자바스크립트로 조정 */
+  animation-fill-mode: forwards;  /* animation 끝난 후에 원상복구 하지 않고 정지 */
+}
+```
+
+### margin, width, left이 아닌 transform을 사용하는 이유
+
+- 웹 브라우저들은 HTML/CSS를 2D 그래픽으로 바꿔주는데, HTML/CSS을 그래픽으로 바꿀 때 [layout 잡기 → 색칠하기 → transform 적용하기] 순서로 동작함
+- layout이 바뀌면 layout(e.g. margin, width 등) 부터 transform 까지 쭉 다시 렌더링 해야하는데, transform이 바뀌면 transform 부분만 다시 렌더링하면 되기 때문.
+- 따라서 animation 적용 시 margin보다 transform를 사용하면 빠르게 동작함
+
+### 성능 개선하기
+
+- will-change : 바뀔 내용을 미리 렌더링해주는 속성임
+
+  ```css
+  .box {
+    /* will-change : 애니메이션 줄 속성 */
+    will-change: transform;
+  }
+  ```
+
+- 하드웨어 가속: GPU의 도움을 받아 연산하기에 translate()보다 성능이 더 좋음
+
+  ```css
+  /* 아무데도 움직이지 않는 3D 이동명령을 주고, 뒤에 필요한 transform을 더 적용한다면 
+  GPU를 이용해 .box가 가진 transform 속성들을 연산할 수 있음 */
+  .box {
+    transform: translate3d(0, 0, 0);
+  }
+  ```
+
+### Grid 사용법
+
+```css
+.grid-container {
+  display: grid;
+
+  /* 격자 열 너비와 갯수, fr는 몇 배만큼 차지할지 값 */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  /* 격자 행 높이와 갯수 */
+  grid-template-rows: 100px 100px 100px;
+
+  grid-gap: 10px;
+}
+```
+
+### Grid로 레이아웃 만드는 법 (1) 자식 div 높이와 폭을 조정하기
+
+```html
+<div class="grid-container">
+    <div class="grid-nav">헤더</div>
+    <div class="grid-sidebar">사이드바</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+```
+
+```css
+.grid-nav {
+  grid-column : 1 / 4; /* 세로선 1부터 4까지 차지 */
+  grid-row : 2 / 4;
+}
+```
+
+### Grid로 레이아웃 만드는 법 (2) 자식에게 이름쓰고 부모가 배치하기
+
+```css
+.grid-nav {
+  grid-area: 헤더;
+}
+
+.grid-sidebar {
+  grid-area: 사이드바;
+}
+```
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 100px 100px 100px;
+  grid-gap: 10px;
+  grid-template-areas: 
+    "헤더 헤더 헤더 헤더"
+    "사이드 사이드 . ."
+    "사이드 사이드 . ."
+}
+```
+
+```css
+/* 반응형은 이렇게 */
+@media screen and (max-width : 768px){
+  .grid-container2 {
+    grid-template-areas: 
+    "헤더 헤더 헤더 헤더"
+    "사이드바 사이드바 사이드바 사이드바"
+    "내용 내용 내용 내용";
+  }
+}
+```
+
+### position: sticky 사용하기
+
+`position : fixed` 는 항상 화면에 고정이 되는 요소를 만들 때 사용하지만, `position : sticky` 는 스크롤이 되어서 이 요소가 화면에 나오면 고정시킴. 이때, (1) 스크롤을 할 만한 부모 박스가 있어야 하고, (2) top 등 좌표속성과 함께 써야 제대로 보임
+
+  ```css
+  /* 
+  1. 스크롤이 되어서 이미지가 보이는 순간
+  2. viewport의 맨 위에서부터 100px 위치에서 고정됨
+  3. 그리고 부모 박스를 넘어서 스크롤 되면 이미지도 같이 사라짐
+  */
+
+  .grey {
+    background: lightgrey;
+    height: 2000px;
+    margin-top: 500px;
+  }
+  .text {
+    float: left;
+    width : 300px;
+  }
+  .image {
+    float: right;
+    width : 400px;
+    position: sticky;
+    top: 100px;
+  }
+  ```
+
+### CSS 3D animation
+
+```css
+transform : rotateX(180deg);
+transform : rotateY(180deg);
+transform : rotateZ(180deg);
+```
